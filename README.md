@@ -1,4 +1,4 @@
-# 记得系列基础
+# 记得系列基础 · Jide Foundation
 
 以当前鸿蒙 jidecards 为主要依据，并参考 iOS JideCards 的现行视觉，整理记得系列已经采用的规范、实现和产品差异，供后续产品接入。旧「可移植积木」已整体退出工作区。公共 HAR 已接入记得魔方、空间训练和记得闪卡，规范及后续提炼范围有逐项来源与状态。
 
@@ -41,15 +41,12 @@
 Node.js 24+，主机检查无 npm 依赖。在本目录运行：
 
 ```powershell
-npm test
 npm run check
-npm run audit:reuse
 npm run build:harmony
-npm run sync:consumers
-npm run check:consumers
+npm test
 ```
 
-HarmonyOS 编译需要本机 DevEco Studio；可用 `DEVECO_STUDIO_HOME` 指定安装目录。工具在 ASCII 临时路径生成独立应用和 HAR，实际调用公共 API，不读取产品签名或用户数据。HAR 输出 `.local/packages/jide_foundation.har`，源码及包哈希在 `.local/packages/report.json`；编译夹具记录在 `.local/harmony-build.json`。随后同步已登记产品的 ohpm 依赖，操作与验收见[公共 HAR 接入](docs/公共HAR接入.md)。
+HarmonyOS 编译需要本机 DevEco Studio；可用 `DEVECO_STUDIO_HOME` 指定安装目录。工具在 ASCII 临时路径生成独立应用和 HAR，实际调用公共 API，不读取产品签名或用户数据。HAR 输出 `.local/packages/jide_foundation.har`，源码及包哈希在 `.local/packages/report.json`；编译夹具记录在 `.local/harmony-build.json`。在包含已登记产品的维护工作区，可使用 `npm run sync:consumers` 同步 ohpm 依赖，操作与验收见[公共 HAR 接入](docs/公共HAR接入.md)。
 
 无签名 HAP 只验证 ArkTS/资源/应用编译，不表示安装、真机触感、读屏、像素、手势或所有设备窗口事件验收通过。系统主题适配使用 API 20+ 的设备资源入口；当前编译夹具采用已有项目使用的 API 21/23 范围，不构成所有更低 API 的兼容证明。
 
